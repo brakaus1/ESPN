@@ -9,5 +9,7 @@ class Game:
 
     def getPlayByPlay(self):
 
-        e = 'http://espn.go.com/nba/boxscore?gameId=400579520'
-        return
+                
+        html = urllib2.urlopen( "http://www.google.com" ).read()
+        soup = BeautifulSoup( html )
+        return soup.find_all(class_='mod-data')
