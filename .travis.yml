@@ -1,0 +1,18 @@
+
+archive: true
+
+language: python
+
+python:
+    - 2.7
+
+before_install:
+    - sudo apt-get -y install python-pip python-dev
+    - pip install -r requirements.txt
+
+script:
+    - nosetests
+    - pep8 --ignore=E501 nba/
+    - pep8 --ignore=E501 tests/
+    - pyflakes nba/
+    - pyflakes tests/
