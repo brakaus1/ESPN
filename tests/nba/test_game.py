@@ -23,4 +23,4 @@ class TestGame(unittest.TestCase):
     def testPlayByPlay(self):
         game.urllib2.urlopen = mockurlopen
         print self.game.getPlayByPlay()
-        self.assertEqual(42, len(self.game.getPlayByPlay()))
+        self.assertEqual( u'Troy Daniels makes 29-foot  three pointer ', self.game.getPlayByPlay()[334]['play'])
