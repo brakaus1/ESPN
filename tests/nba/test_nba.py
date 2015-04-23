@@ -18,6 +18,9 @@ class Mockurlopen():
         elif 'playbyplay' in self.url:
             with open('tests/data/gamePlayByPlay.html') as f:
                 return f.read()
+        elif 'boxscore' in self.url:
+            with open('tests/data/gameBoxScore.html') as f:
+                return f.read()
         return
 
 
@@ -39,3 +42,6 @@ class TestNBA(unittest.TestCase):
 
     def testPlayByPlay(self):
         self.assertEqual(u'Troy Daniels makes 29-foot  three pointer ', self.nba.getPlayByPlay(400579520)[334]['play'])
+
+    def testGetBoxScore(self):
+        self.assertEqual(-15, self.nba.getBoxScore(400579520)['away_players'][0]['plus_minus'])
